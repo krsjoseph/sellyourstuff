@@ -28,6 +28,8 @@
 #
 #
 
+HOST: 'sellyourstuff.com'
+
 development:
   FB_APP_ID: '1438214059808997'
   FB_APP_SECRET: '950a0b029c5111eeb7afac349ac46dfe'
