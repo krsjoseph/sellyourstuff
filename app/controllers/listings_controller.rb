@@ -15,6 +15,8 @@ class ListingsController < ApplicationController
 
   # GET /listings/1
   def show
+    @listing  = Listing.find(params[:id])
+    @pictures = @listing.pictures
   end
 
   # GET /listings/new
@@ -32,6 +34,9 @@ class ListingsController < ApplicationController
     @listing.user_id = current_user.id
 
     if @listing.save
+      if params[:images]
+        params[:images].each { |image| @listing.pictures.create(image: image) }
+      end
       redirect_to @listing, notice: 'Listing was successfully created.'
     else
       render :new
@@ -41,6 +46,9 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   def update
     if @listing.update(listing_params)
+      if params[:images]
+        params[:images].each { |image| @gallery.pictures.create(image: image) }
+      end
       redirect_to @listing, notice: 'Listing was successfully updated.'
     else
       render :edit
@@ -61,7 +69,7 @@ class ListingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :location, :image)
+      params.require(:listing).permit(:name, :description, :location, :image, :picture)
     end
 
     def check_user

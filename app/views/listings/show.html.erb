@@ -1,4 +1,77 @@
-<p id="notice"><%= notice %></p>
+<div id="listings">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 sm-no-padding">
+          <div class="panel panel-transparent">
+            <div class="panel-body no-padding">
+              <div id="portlet-advance" class="panel panel-default">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <%= link_to image_tag(@listing.image.url), @listing, class: "thumbnail image-responsive-height" %>
+                    </div>
+
+                    <div class="col-md-8">
+                      <h3><%= @listing.name %></h3>
+                      <p><%= h(@listing.description).gsub(/\n/, '<br/>').html_safe %> </p>
+                      <p>
+                        <small><%= @listing.location %></small>
+                      </p>
+                      <br>
+                      <div>
+                        <div class="profile-img-wrapper m-t-5 inline">
+                          <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
+                          <div class="chat-status available">
+                          </div>
+                        </div>
+                        <div class="inline m-l-10">
+                          <p class="small hint-text m-t-5"><%= "Sold by #{@listing.user.name}" %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <% unless @pictures.empty? %>
+                      <% @pictures.each do |pic| %>
+                        <div class="col-md-3" id="picture_<%= pic.id %>">
+                          <div class="thumbnail">
+                            <%= image_tag pic.image.url %>
+                            <div class="caption">
+                              <p style="text-align: center;">
+                                <%= link_to "Edit picture", picture_path(pic) %>
+
+                                <%=
+                                    link_to "Delete picture", pic,
+                                            :data => { :confirm => "Are you sure?" },
+                                            :method => :delete
+                                %>
+
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= link_to 'New Listing', new_listing_path , class: "btn btn-success"%>
+      <%= link_to 'Edit', edit_listing_path(@listing) %> |
+      <%= link_to 'Back', listings_path %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
 
 <p>
   <strong>Name:</strong>
@@ -15,5 +88,6 @@
   <%= @listing.location %>
 </p>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+
+
+<br/>
