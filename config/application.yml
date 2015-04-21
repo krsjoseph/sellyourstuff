@@ -1,0 +1,42 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+##TODO : UPDATE VALUES WITH PROJECT SPECIFIC
+#
+#AWS_ACCESS_KEY_ID: 'AKIAJP3WV3IYU2GDTGMQ'
+#AWS_SECRET_ACCESS_KEY: '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'
+#AWS_BUCKET: 'alckemi-production'
+##
+##SEGMENT_IO_KEY: 'iRzfkr1Y46'
+##
+#ALGOLIASEARCH_APPLICATION_ID: '1TJMUC95XH'
+#ALGOLIASEARCH_API_KEY: 'cccf977155e770164c6d8331501e71e3'
+#ALGOLIASEARCH_API_KEY_SEARCH: 'df39dc181ae6be90774e2d9137ec99f6'
+#
+#NEW_RELIC_LICENSE_KEY: 'f70ebaccdabfcec67495e03fa0c630421982afe7'
+#
+#AIRBRAKE_API_KEY: 'b1326200f1d40292e9589c6052a344f1'
+#
+#
+
+development:
+  FB_APP_ID: '1438214059808997'
+  FB_APP_SECRET: '950a0b029c5111eeb7afac349ac46dfe'
+
+production:
+  FB_APP_ID: '1438209509809452'
+  FB_APP_SECRET: '1e662ca64d4cebe1b9bb38046f921833'
+
+#
+#staging:
+#  FB_APP_ID: '626768567423228'
+#  FB_APP_SECRET: '09ff7b7644da8ff777a65eb33a4fa644'
