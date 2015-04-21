@@ -29,6 +29,7 @@ class ListingsController < ApplicationController
   # POST /listings
   def create
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
 
     if @listing.save
       redirect_to @listing, notice: 'Listing was successfully created.'
@@ -60,7 +61,7 @@ class ListingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :location)
+      params.require(:listing).permit(:name, :description, :location, :image)
     end
 
     def check_user
