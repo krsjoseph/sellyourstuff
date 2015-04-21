@@ -1,0 +1,47 @@
+<div id="listings">
+  <div class="container">
+    <div class="row">
+      <% @listings.each do |listing| %>
+        <div class="col-md-12 sm-no-padding">
+          <div class="panel panel-transparent">
+            <div class="panel-body no-padding">
+              <div id="portlet-advance" class="panel panel-default">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <%= link_to image_tag(listing.image.url), listing, class: "thumbnail image-responsive-height" %>
+                    </div>
+
+                    <div class="col-md-8">
+                      <h3><%= listing.name %></h3>
+                      <p><%= h(listing.description).gsub(/\n/, '<br/>').html_safe %> </p>
+                      <br>
+                      <div>
+                        <div class="profile-img-wrapper m-t-5 inline">
+                          <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
+                          <div class="chat-status available">
+                          </div>
+                        </div>
+                        <div class="inline m-l-10">
+                          <p class="small hint-text m-t-5"><%= "Sold by #{listing.user.name}" %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= link_to 'New Listing', new_listing_path , class: "btn btn-success"%>
+    <% end %>
+  </div>
+</div>
+
+
+
+

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :listings, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -21,7 +22,8 @@ class User < ActiveRecord::Base
             name: auth.extra.raw_info.name,
             email: auth.info.email,
             password: Devise.friendly_token[0, 20],
-            provider: auth.provider)
+            provider: auth.provider,
+            image_url: auth.info.image)
         logger.info("Creating New User: #{user.to_json}")
       end
     end
