@@ -1,10 +1,10 @@
-<%= simple_form_for(@listing) do |f| %>
+<%= simple_form_for(@listing, :html => {:multipart => true} ) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%# f.input :image, as: :file %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
+    <%= f.input :image, as: :file, label: 'Featured Image' %>
+    <%= file_field_tag "images[]", type: :file, multiple: true, label: 'More Images' %>
     <%= f.input :description %>
     <%= f.input :location %>
   </div>

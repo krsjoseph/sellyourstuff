@@ -47,7 +47,7 @@ class ListingsController < ApplicationController
   def update
     if @listing.update(listing_params)
       if params[:images]
-        params[:images].each { |image| @gallery.pictures.create(image: image) }
+        params[:images].each { |image| @listing.pictures.create(image: image) }
       end
       redirect_to @listing, notice: 'Listing was successfully updated.'
     else
