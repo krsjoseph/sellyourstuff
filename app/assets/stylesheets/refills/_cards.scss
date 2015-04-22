@@ -1,5 +1,3 @@
-
-
 .cards {
   @include display(flex);
   @include flex-wrap(wrap);
@@ -87,5 +85,9 @@
     .card-header {
       background-color: $card-background;
     }
+  }
+
+  .card:last-child {
+    background: #ff0000;
   }
 }
