@@ -7,10 +7,10 @@
             <div id="portlet-advance" class="panel panel-default">
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <%= link_to image_tag(@listing.image.url), @listing, class: "thumbnail image-responsive-height" %>
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-6">
                     <h3><%= @listing.name %></h3>
                     <p><%= h(@listing.description).gsub(/\n/, '<br/>').html_safe %> </p>
                     <p>
@@ -18,11 +18,11 @@
                     </p>
                     <br>
                     <div>
-                      <div class="profile-img-wrapper m-t-5 inline">
-                        <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
-                        <div class="chat-status available">
-                        </div>
-                      </div>
+                      <!--<div class="profile-img-wrapper m-t-5 inline">-->
+                        <!--&lt;!&ndash;<img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">&ndash;&gt;-->
+                        <!--<div class="chat-status available">-->
+                        <!--</div>-->
+                      <!--</div>-->
                       <div class="inline m-l-10">
                         <p class="small hint-text m-t-5"><%= "Post by #{@listing.user.name}" %></p>
                       </div>
