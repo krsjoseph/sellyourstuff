@@ -1,41 +1,40 @@
-<div id="listings">
+<div id="listings" class="m-t-20">
   <div class="container">
     <div class="row">
-      <% @listings.each do |listing| %>
-        <div class="col-md-8 sm-no-padding">
-          <div class="panel panel-transparent">
-            <div class="panel-body no-padding">
-              <div id="portlet-advance" class="panel panel-default">
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <%= link_to image_tag(listing.image.url), listing, class: "thumbnail image-responsive-height" %>
-                    </div>
+      <div class="cards">
+        <% @listings.each do |listing| %>
+          <% link_to listing do %>
+          <% end  %>
+          <div class="card">
+            <div class="card-image">
+              <%= link_to image_tag(listing.image.url(:medium)) , listing, class: "image-responsive-height" %>
+            </div>
+            <div class="card-header">
+              <%= link_to listing.name, listing %>
+            </div>
+            <div class="card-copy">
+              <p>
 
-                    <div class="col-md-6">
-                      <h5><%= listing.name %></h5>
-                      <p><%# h(listing.description).gsub(/\n/, '<br/>').html_safe %>
-                        <%= link_to "View", listing, class: "btn btn-sm btn-complete" %>
-                      </p>
-                      <br>
-                      <div>
-                        <div class="profile-img-wrapper m-t-5 inline">
-                          <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">
-                          <div class="chat-status available">
-                          </div>
-                        </div>
-                        <div class="inline m-l-10">
-                          <p class="small hint-text m-t-5"><%= "Sold by #{listing.user.name}" %></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </p>
             </div>
           </div>
-        </div>
-      <% end %>
+
+
+
+
+
+          <div class="comment">
+            <div class="comment-image">
+              <%= link_to image_tag(listing.image.url(:medium)) , listing, class: "image-responsive-height" %>
+            </div>
+            <div class="comment-content">
+              <h1><%= link_to listing.name, listing %></h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+              <p class="comment-detail">Date or details about this post</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <% if user_signed_in? %>

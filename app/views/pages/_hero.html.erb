@@ -1,34 +1,24 @@
-<div id="home-jumbotron">
-  <div class="jumbotron text-center ">
-    <div class="container">
+<div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image"></a>
+    <div class="hero-copy">
       <h1>List your items for sale</h1>
-      <h1><small>Free... FOREVER</small></h1>
-      <!--<div class="row">-->
-        <!--<div class="col-md-4">-->
-          <!--<h4>Connect</h4>-->
-        <!--</div>-->
-        <!--<div class="col-md-4">-->
-          <!--<h4>Comment</h4>-->
-        <!--</div>-->
-        <!--<div class="col-md-4">-->
-          <!--<h4>Contact</h4>-->
-        <!--</div>-->
-      <!--</div>-->
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-          <p>
-            <% if user_signed_in? %>
-              <%= link_to 'Post New Item', new_listing_path , class: "btn btn-primary btn-lg "%>
-            <% else %>
-              <a href="/users/auth/facebook" class="center-margin	">
-                <button class="btn btn-lg btn-block btn-info" type="button"><span class="pull-left"><i class="fa fa-facebook"></i></span>
-                  <span class="bold">Login with Facebook</span>
-                </button>
-              </a>
-            <% end %>
-          </p>
-        </div>
-      </div>
+      <p>A few reasons why this product is worth using, who it's for and why they need it.</p>
     </div>
+
+    <p>
+      <% if user_signed_in? %>
+        <%= link_to 'Post New Item', new_listing_path , class: "btn btn-primary btn-lg "%>
+      <% else %>
+        <a href="/users/auth/facebook" class="center-margin	">
+          <button class="btn btn-lg btn-block btn-info" type="button"><span class="pull-left"><i class="fa fa-facebook"></i></span>
+            <span class="bold">Login with Facebook</span>
+          </button>
+        </a>
+      <% end %>
+    </p>
   </div>
 </div>
+
+
+
