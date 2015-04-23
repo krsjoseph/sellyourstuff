@@ -1,0 +1,70 @@
+<div id="listings" class="m-t-20">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 sm-no-padding">
+        <div class="panel panel-transparent">
+          <div class="panel-body no-padding">
+            <div id="portlet-advance" class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <%= link_to image_tag(@listing.image.url), @listing, class: "thumbnail image-responsive-height" %>
+                  </div>
+                  <div class="col-md-6">
+                    <h3><%= @listing.name %></h3>
+                    <p><%= h(@listing.description).gsub(/\n/, '<br/>').html_safe %> </p>
+                    <p>
+                      <small><%= @listing.location %></small>
+                    </p>
+                    <br>
+                    <div>
+                      <!--<div class="profile-img-wrapper m-t-5 inline">-->
+                        <!--&lt;!&ndash;<img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" alt="" src="assets/img/profiles/avatar_small2x.jpg">&ndash;&gt;-->
+                        <!--<div class="chat-status available">-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <div class="inline">
+                        <p class="small hint-text m-t-5"><%= "Post by #{@listing.user.name}" %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <% unless @pictures.empty? %>
+                    <% @pictures.each do |pic| %>
+                      <div class="col-md-3" id="picture_<%= pic.id %>">
+                        <div class="thumbnail">
+                          <%= image_tag pic.image.url %>
+                          <% if current_user == @listing.user %>
+                            <div class="caption">
+                              <p style="text-align: center;">
+                                <%= link_to "Delete picture", pic, :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger btn-sm" %>
+                              </p>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="col-md-12 m-t-10">
+                  <p class="clearfix">
+                    <% if user_signed_in? %>
+                      <%= link_to 'New Listing', new_listing_path , class: "btn btn-success"%>
+                      <% if current_user == @listing.user %>
+                        <%= link_to 'Edit', edit_listing_path(@listing), class: "" %> |
+                      <% end %>
+                      <%= link_to 'Back', listings_path %>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        <div class="fb-comments" data-href="http://localhost:3001/listings/<%= @listing.id %>"  data-numposts="20" data-colorscheme="light"></div>
+      </div>
+    </div>
+  </div>
+</div>
+

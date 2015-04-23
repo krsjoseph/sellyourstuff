@@ -1,0 +1,26 @@
+<div class="container" id="home-products">
+  <div class="page-header">
+    <h4 class="text-center">Latest Listings <small><%= link_to "View All", listings_path %></small></h4>
+  </div>
+  <div class="row">
+    <div class="cards">
+      <% @listings.each do |listing| %>
+        <% link_to listing do %>
+        <% end  %>
+        <div class="card">
+          <div class="card-image">
+            <%= link_to image_tag(listing.image.url(:medium)) , listing, class: "image-responsive-height" %>
+          </div>
+          <div class="card-header">
+            <%= link_to listing.name, listing %>
+          </div>
+          <div class="card-copy">
+            <p>
+              <%=  truncate("#{listing.description}", length: 149) %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

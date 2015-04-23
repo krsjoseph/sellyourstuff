@@ -1,8 +1,44 @@
-@charset "utf-8";
+/*
+ *
+ * BEGIN VENDOR CSS FOR PAGES
+ *= require normalize-rails
+ *= require pages-plugins/pace/pace-theme-flash
+ *= require pages-plugins/boostrapv3/css/bootstrap.min
+ *= require pages-plugins/font-awesome/css/font-awesome
+ *= require pages-plugins/jquery-scrollbar/jquery.scrollbar
+ *= require pages-plugins/bootstrap-select2/select2
+ *= require pages-plugins/switchery/css/switchery
+ *= require pages-plugins/jquery-metrojs/MetroJs
+ *= require pages-plugins/codrops-dialogFx/dialog
+ *= require pages-plugins/owl-carousel/assets/owl.carousel
+ *= require pages-plugins/codrops-dialogFx/dialog-sandra
+ *= require pages-plugins/jquery-nouislider/jquery.nouislider
+ *= require pages-plugins/jquery-scrollbar/jquery.scrollbar
+ *= require pages-plugins/bootstrap-select2/select2
+ *= require pages-plugins/switchery/css/switchery.min
+ *
+ * BEGIN CORE TEMPLATE CSS FOR PAGES
+ *= require pages-core/css/pages-icons
+ *= require pages-core/css/pages
+ * require pages-core/less/modules/gallery
+*/
 
-@import "normalize-rails";
 @import "bourbon";
-@import "base/grid-settings";
-@import "neat";
-@import "base/base";
+@import "neat/neat";
 @import "refills/flashes";
+@import "refills/cards";
+@import "refills/hero";
+@import "refills/comment";
+
+@import "partials/navbar";
+@import "partials/thumbnail";
+@import "partials/listing";
+@import "partials/pages";
+@import "gallery";
+
+
+.card-image {
+  overflow: hidden;
+  //height: 350px;
+}
+

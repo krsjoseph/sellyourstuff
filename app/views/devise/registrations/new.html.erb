@@ -1,0 +1,30 @@
+
+<div class="container m-t-20">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <a href="/users/auth/facebook" class="center-margin	">
+        <button class="btn btn-lg btn-block btn-info m-b-10 " style="background-color: #477DCA" type="button"><span class="pull-left"><i class="fa fa-facebook"></i></span>
+          <span class="bold">Sign Up with Facebook</span>
+        </button>
+      </a>
+      <h4 class="text-center">Or</h4>
+      <h2>Sign up</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

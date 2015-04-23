@@ -1,0 +1,28 @@
+<div class="container m-t-20">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <a href="/users/auth/facebook" class="center-margin	">
+        <button class="btn btn-lg btn-block btn-info m-b-10 " style="background-color: #477DCA" type="button"><span class="pull-left"><i class="fa fa-facebook"></i></span>
+          <span class="bold">Sign Up with Facebook</span>
+        </button>
+      </a>
+      <h4 class="text-center">Or</h4>
+
+      <h2>Log in</h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Log in" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
