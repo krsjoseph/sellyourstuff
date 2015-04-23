@@ -11,6 +11,7 @@ gem "delayed_job_active_record"
 gem "email_validator"
 gem "execjs"
 gem "flutie"
+gem "font-awesome-rails"
 gem "figaro"
 gem "devise"
 gem "high_voltage"
@@ -62,6 +63,7 @@ group :test do
 end
 
 group :staging, :production do
+  gem "rails_12factor"
   gem "rails_stdout_logging"
   gem "rack-timeout"
 end
